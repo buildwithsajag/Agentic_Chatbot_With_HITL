@@ -1,7 +1,14 @@
-langgraph
+langchain-community
+langchain-core
 langchain-groq
+langchain-huggingface
 langchain-tavily
-python-dotenv
-streamlit
+langchain-text-splitters
+langgraph
 langgraph-checkpoint-sqlite
+pypdf
+faiss-cpu
+python-dotenv
+requests
+streamlit
 pydantic
