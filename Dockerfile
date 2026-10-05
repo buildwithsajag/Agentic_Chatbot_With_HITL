@@ -28,4 +28,4 @@ COPY . .
 EXPOSE 10000
 
 # Use shell form so $PORT is expanded at runtime
-CMD streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
+CMD streamlit run app_hitl.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
