@@ -1,46 +1,41 @@
-# Agentic Chatbot With HITL
+# 🤖 Agentic Chatbot With HITL
 
-A modern, stateful agentic chatbot built with **LangGraph** featuring **Human-in-the-Loop (HITL)** workflows, dynamic tool calling, and a polished **Streamlit** interface.
+A modern, stateful agentic chatbot built with **LangGraph** featuring **Human-in-the-Loop (HITL)** workflows, dynamic tool calling, Retrieval-Augmented Generation (RAG), and a polished **Streamlit** interface.
+
+🔗 **Live Demo:** [https://agentic-chatbot-with-hitl-10.onrender.com/](https://agentic-chatbot-with-hitl-10.onrender.com/)
+
+> ⚠️ **Note:** This app is deployed on **Render's free tier**. If the page appears blank or slow on first load, it's a **cold start** — please wait 30–60 seconds and refresh.
+
+---
+
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#-tech-stack)
+- [Installation & Setup](#️-installation--setup)
+- [Environment Variables](#-environment-variables)
+- [Running the App](#-running-the-app)
+- [Deployment](#️-deployment)
+- [Example Prompts](#-example-prompts)
+- [Human-in-the-Loop Workflow](#-human-in-the-loop-workflow)
+- [RAG Pipeline](#-rag-pipeline)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
+- [Acknowledgements](#-acknowledgements)
+
+---
 
 ## 🚀 Features
 
-*   **Agentic Workflow:** Utilizes LangGraph to create cyclic, stateful agent graphs.
-*   **Human-in-the-Loop (HITL):** Built-in interruption points that allow users to review, approve, or edit the agent's planned actions before execution.
-*   **Dynamic Tool Calling:** Extensible architecture allowing the agent to use custom Python functions as tools.
-*   **RAG Capabilities:** Includes experimental Retrieval-Augmented Generation modules using local vector stores (FAISS).
-*   **Persistent Memory:** Uses SQLite for thread-level persistence and checkpointing.
-*   **Streamlit UI:** A clean, interactive frontend for chatting with the agent, managing threads, and handling approvals.
+- **Agentic Workflow** — Uses LangGraph to create cyclic, stateful agent graphs with conditional routing.
+- **Human-in-the-Loop (HITL)** — Interrupt points that let users review, approve, or reject the agent's planned actions before execution.
+- **Dynamic Tool Calling** — Extensible architecture where the agent picks from custom Python tools (search, calculator, stock, weather, RAG, purchase).
+- **RAG Capabilities** — Retrieval-Augmented Generation using a local **FAISS** vector store with **FastEmbed** embeddings (no heavy torch dependency).
+- **Persistent Memory** — SQLite-backed thread-level persistence via `langgraph-checkpoint-sqlite`.
+- **Streamlit UI** — Clean, interactive frontend for chatting, managing threads, and handling approvals.
+- **Free-Tier Friendly** — Runs on Render's free plan by using lightweight local embeddings instead of torch/sentence-transformers.
+
+---
 
 ## 📂 Project Structure
-
-Here is a brief overview of the key files in this repository:
-
-### 🖥️ User Interfaces (Streamlit Apps)
-*   `app_hitl.py`: **(Main App)** The primary Streamlit interface featuring the Human-in-the-Loop approval workflow.
-*   `app_tool.py`: Streamlit app demonstrating basic tool-calling capabilities.
-*   `app_simple.py`: A minimal, basic implementation of the chatbot.
-*   `app_thread.py`: Demonstrates thread management and conversation persistence.
-*   `app_db.py`: UI implementation interacting with the SQLite database.
-*   `app_rag.py`: UI implementation demonstrating the Retrieval-Augmented Generation features.
-
-### ⚙️ Backend Logic (LangGraph & Agents)
-*   `agentic_chatbot_hitl_backend.py`: The core LangGraph logic defining the HITL state machine, nodes, and interrupt conditions.
-*   `agentic_chatbot_tool_backend.py`: The core logic for standard agentic tool-calling workflows.
-*   `agentic_chatbot_db_backend.py`: Backend logic handling SQLite database interactions and state checkpointing.
-*   `agentic_chatbot_rag_backend.py`: Backend logic handling document retrieval and vector search integration.
-*   `chatbot_with_hitl.py`: An alternative/experimental script for HITL execution.
-
-### 📁 Data & Assets
-*   `faiss_db/`: Directory containing the local FAISS vector store for RAG.
-*   `Chatbot_workflow.ipynb`: Jupyter Notebook used for prototyping and visualizing the LangGraph workflows.
-*   `Persistence.excalidraw`: Excalidraw diagram file detailing the architecture/flow.
-*   `chatbot.db`: *(Ignored in Git)* Local SQLite database for storing chat histories.
-*   `my_paper.pdf`: Sample document used for testing RAG ingestion.
-*   `product_developer_roadmap.pdf`: Additional sample document for RAG.
-
-## 🛠️ Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/buildwithsajag/Agentic_Chatbot_With_HITL.git
-   cd Agentic_Chatbot_With_HITL
