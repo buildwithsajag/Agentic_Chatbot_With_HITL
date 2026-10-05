@@ -6,6 +6,7 @@ langchain-tavily
 langchain-text-splitters
 langgraph
 langgraph-checkpoint-sqlite
+sentence-transformers
 pypdf
 faiss-cpu
 python-dotenv
