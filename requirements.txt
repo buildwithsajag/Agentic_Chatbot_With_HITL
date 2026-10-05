@@ -1,5 +1,6 @@
 langgraph
 langchain-groq
+langchain-tavily
 python-dotenv
 streamlit
 langgraph-checkpoint-sqlite
